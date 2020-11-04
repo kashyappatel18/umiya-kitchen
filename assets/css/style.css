@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css?family=Rochester|Source+Sans+Pro|Lobster|Pacifico|Lobster+Two|Amaranth|Oleo+Script);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans);
+
+
+body{
+	font-family: "Open Sans";
+	font-size: 14px;
+}
+.navbar-brand{
+	font-family: Amaranth,"sans-serif";
+}
+nav a.nav-link:active{
+	color: #ff0000;
+}
+input{
+	font-size: 14px;
+	font-family: "Open Sans";
+}
+.dropdown-menu{
+	font-size: 14px;
+}
+.no-border{
+    border:none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.remove{
+    margin-bottom: 0;
+}
+.clickable-row:hover{
+    cursor:pointer;
+}
+.qtydisp{
+    /*position: absolute;
+    margin-top:  -20px;
+    margin-left: 200px;
+    z-index: 10;*/
+    
+}
+
