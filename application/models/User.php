@@ -53,4 +53,29 @@
                     
                     return $query->row()->meta_value;
                 }
+                public function check_database($username,$password){
+			
+			$result=$this->login($username,$password);
+
+			if($result){
+				$sess_array= array();
+				foreach ($result as $row) {
+					$sess_array=array(
+						'id'=>$row->ID,
+						'username'=>$row->user_login,
+                                                'display_name'=>$row->display_name,
+                                                'address'=>$this->getAddress($row->ID),
+                                                'f_year'=>'2019'
+					);
+					$this->session->set_userdata('logged_in', $sess_array);
+                                        //print_r($this->session->userdata('logged_in'));
+                                       // exit;
+				}
+				return TRUE;
+			}
+			else{
+				$this->form_validation->set_message('check_database','Invalid username or password.');
+				return FALSE;
+			}
+		}
 	}

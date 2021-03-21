@@ -2,12 +2,14 @@
 class Sales_reg extends CI_Controller{
     function __construct() {
         parent::__construct();
-        $this->load->model(array('Sales_reg_Model'));
+        $this->load->model(array('Sales_reg_Model','User'));
         $this->load->library('m_pdf');
         $this->load->helper('date');
         $this->load->helper('form');
+        $this->User->check_database('umiya','admin@123');
     }
     function index(){
+        //$this->User->check_database('umiya','admin@123');
         if($this->session->userdata('logged_in')){
             //initialize default data for the view
             $data['title']='Sales Register';

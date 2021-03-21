@@ -4,6 +4,7 @@
 			parent::__construct();
 			$this->load->model('user','',TRUE);
 			$this->load->library('form_validation');
+                         $this->load->library('session');
 		}
 		function index(){
 
@@ -16,12 +17,13 @@
 				$this->load->view('templates/footer');
 			}
 			else{
+                            //print_r($this->session->userdata('logged_in'));
 				redirect('/home','refresh');
 			}
 		}
 		function check_database($password){
 			$username=$this->input->post('username');
-
+$this->session->sess_destroy();
 			$result=$this->user->login($username,$password);
 
 			if($result){
@@ -35,6 +37,8 @@
                                                 'f_year'=>'2019'
 					);
 					$this->session->set_userdata('logged_in', $sess_array);
+                                        print_r($this->session->userdata('logged_in'));
+                                       // exit;
 				}
 				return TRUE;
 			}

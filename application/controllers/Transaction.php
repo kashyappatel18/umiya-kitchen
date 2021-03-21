@@ -2,9 +2,11 @@
 class Transaction extends CI_Controller{
     function __construct() {
         parent::__construct();
-        $this->load->model(array('Voucher_Model'));
+        $this->load->model(array('Voucher_Model','User'));
+        $this->User->check_database('umiya','admin@123');
     }
     function index(){
+        //$this->User->check_database('umiya','admin@123');
         $data['title']="Transactions";
         $data['js']='transaction';
         

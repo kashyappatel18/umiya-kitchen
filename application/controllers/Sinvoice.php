@@ -3,9 +3,11 @@ class sinvoice extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->helper(array('form','date'));
-		$this->load->model(array('Contact_Model','Product_Model','Tax_Model','SInvoice_Model','Voucher_Model'));
+		$this->load->model(array('Contact_Model','Product_Model','Tax_Model','SInvoice_Model','Voucher_Model','User'));
+                $this->User->check_database('umiya','admin@123');
 	}
 	function index(){
+            //$this->User->check_database('umiya','admin@123');
 		if($this->session->userdata('logged_in')){
 			$data['title']="Sales Invoice";
 			$data['js']="sales_invoice";

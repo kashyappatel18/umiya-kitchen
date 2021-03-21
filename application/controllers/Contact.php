@@ -4,10 +4,12 @@ class contact extends CI_Controller{
 		parent::__construct();
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->load->model(array('Contact_Model','Account_Model'));
+		$this->load->model(array('Contact_Model','Account_Model','User'));
                 $this->load->library('m_pdf');
+                $this->User->check_database('umiya','admin@123');
 	}
 	function index(){
+            //$this->User->check_database('umiya','admin@123');
 		if($this->session->userdata('logged_in')){
 			$data['title']='Contact';
                         $data['js']='contact';

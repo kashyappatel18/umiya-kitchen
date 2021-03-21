@@ -3,8 +3,9 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->helper(array('date'));
-			$this->load->model(array('Contact_Model','Product_Model','Tax_Model','SInvoice_Model'));
+			$this->load->model(array('Contact_Model','Product_Model','Tax_Model','SInvoice_Model','User'));
                         $this->load->library('m_pdf');
+                        $this->User->check_database('umiya','admin@123');
 		}
 		public function view($invId=NULL){
 			if($this->session->userdata('logged_in')){

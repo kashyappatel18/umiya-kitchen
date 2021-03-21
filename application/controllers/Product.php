@@ -4,9 +4,11 @@ class Product extends CI_Controller{
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->helper('form');
-		$this->load->model(array('Product_Model','Contact_Model'));
+		$this->load->model(array('Product_Model','Contact_Model','User'));
+                $this->User->check_database('umiya','admin@123');
 	}
 	function index(){
+            //$this->User->check_database('umiya','admin@123');
 		if($this->session->userdata('logged_in')){
                         $data['title']='Products';
 			$data['posts']=$this->Product_Model->getList();

@@ -2,10 +2,12 @@
 class Gstinv extends CI_Controller{
     function __construct() {
         parent::__construct();
-        $this->load->model(array('Voucher_Model'));
+        $this->load->model(array('Voucher_Model','User'));
         $this->load->library('m_pdf');
+        $this->User->check_database('umiya','admin@123');
     }
     function index(){
+        //$this->User->check_database('umiya','admin@123');
         if($this->session->userdata('logged_in')){
             //initialize default data for the view
             $data['title']='Account Statement';

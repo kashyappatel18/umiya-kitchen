@@ -5,8 +5,12 @@
 			parent::__construct();
 			$this->load->helper('date');
 			$this->load->helper('form');
+                        $this->load->library('session');
+                        $this->load->model(array('User'));
+                        $this->User->check_database('umiya','admin@123');
 		}
 		public function view($page='home'){
+                    //$this->User->check_database('umiya','admin@123');
 			if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
 				show_404();
 			}
@@ -33,7 +37,8 @@
                         }
                         else
                         {
-				redirect('/login','refresh');
+                           // echo $page;
+				//redirect('/login','refresh');
 			}
 		}
             function home(){
